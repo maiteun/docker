@@ -1,0 +1,21 @@
+version: '2.29.7'
+
+services:
+  web:
+    image: seojieun/mywebserver:1.0
+    ports:
+      - "8090:9000"
+
+  database:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: yourpassword  
+      MYSQL_DATABASE: exampledb           
+      MYSQL_USER: exampleuser        
+      MYSQL_PASSWORD: examplepassword    
+    volumes:
+      - db_data:/var/lib/mysql
+    restart: always
+
+volumes:
+  db_data:
